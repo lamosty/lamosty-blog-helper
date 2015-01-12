@@ -28,4 +28,18 @@ class LBH_Store_Frontend extends Lamosty_Store {
 			$query->set( 'cat', $cat_IDs_excluded_string );
 		}
 	}
+
+	public function reverse_cat_posts_order( $cat_IDs ) {
+		$this->add_single_data( 'reversed_cat_IDs', $cat_IDs );
+
+		add_action( 'pre_get_posts', array( $this, 'action_reverse_cat_posts_order' ) );
+	}
+
+	public function action_reverse_cat_posts_order( WP_Query $query ) {
+		$cat_IDs = $this->get_single_data( 'reversed_cat_IDs' );
+
+		if ( $query->is_category( $cat_IDs ) ) {
+			$query->set( 'order', 'ASC' );
+		}
+	}
 }
