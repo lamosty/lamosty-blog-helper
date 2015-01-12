@@ -16,6 +16,7 @@ class LBH_Actions_Frontend extends Lamosty_Actions {
 
 	public function init_actions() {
 		$this->hide_cat_from_homepage(56);
+		$this->hide_cat_from_homepage(55);
 	}
 
 }
