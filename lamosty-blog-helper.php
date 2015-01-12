@@ -22,6 +22,8 @@ require_once( $lamosty_plugin_stack_dir . '/init.php');
 class Lamosty_Blog_Helper extends Lamosty_Plugin {
 
 	function __construct( Lamosty_Dispatcher $dispatcher, $file) {
+		$this->class_prefix = 'lbh';
+
 		parent::__construct($file);
 
 	}
