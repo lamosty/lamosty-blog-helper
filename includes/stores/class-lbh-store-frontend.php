@@ -7,7 +7,7 @@ class LBH_Store_Frontend extends Lamosty_Store {
 	protected $id = 'frontend';
 
 	public function hide_cat_from_homepage( $cat_IDs ) {
-		$this->add_single_data( 'cat_ID', $cat_IDs );
+		$this->add_single_data( 'cat_IDs', $cat_IDs );
 
 		add_action( 'pre_get_posts', array( $this, 'action_hide_cat_from_homepage' ) );
 	}

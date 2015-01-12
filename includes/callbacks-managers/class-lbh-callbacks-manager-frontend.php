@@ -14,7 +14,7 @@ class LBH_Callbacks_Manager_Frontend extends Lamosty_Callbacks_Manager {
 
 		switch ( $action_type ) {
 			case "hide_cat_from_homepage":
-				$this->get_store( 'frontend' )->hide_cat_from_homepage( $action["cat_ID"] );
+				$this->get_store( 'frontend' )->hide_cat_from_homepage( $action["cat_IDs"] );
 				break;
 		}
 	}
