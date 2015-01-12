@@ -1,3 +1,3 @@
 [submodule "lib/lamosty-plugin-stack"]
 	path = lib/lamosty-plugin-stack
-	url = git@github.com:lamosty/plugin-stack.git
+	url = https://github.com/lamosty/lamosty-plugin-stack.git
