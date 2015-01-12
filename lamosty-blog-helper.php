@@ -17,26 +17,37 @@
 
 $lamosty_plugin_stack_dir = dirname( __FILE__ ) . '/lib/lamosty-plugin-stack';
 
-require_once( $lamosty_plugin_stack_dir . '/init.php');
+require_once( $lamosty_plugin_stack_dir . '/init.php' );
 
 class Lamosty_Blog_Helper extends Lamosty_Plugin {
 
-	function __construct( Lamosty_Dispatcher $dispatcher, $file) {
+	function __construct( Lamosty_Dispatcher $dispatcher, $file ) {
 		$this->class_prefix = 'lbh';
 
-		parent::__construct($file);
+		parent::__construct( $dispatcher, $file );
 
+		add_action( 'init', array( $this, 'action_init' ) );
+
+	}
+
+	public function action_init() {
+		$callbacks_manager_frontend = new LBH_Callbacks_Manager_Frontend( $this->dispatcher, $this );
+		$callbacks_manager_frontend->register_callbacks();
+
+		$actions_frontend = new LBH_Actions_Frontend( $this->dispatcher );
+		$actions_frontend->init_actions();
 	}
 
 	public static function init( Lamosty_Dispatcher $dispacher, $file ) {
 		static $instance = null;
 
-		if ( ! $instance )
+		if ( ! $instance ) {
 			$instance = new Lamosty_Blog_Helper( $dispacher, $file );
+		}
 
 		return $instance;
 
 	}
 }
 
-Lamosty_Blog_Helper::init(new Lamosty_Dispatcher(), __FILE__);
+Lamosty_Blog_Helper::init( new Lamosty_Dispatcher(), __FILE__ );
