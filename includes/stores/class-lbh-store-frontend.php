@@ -9,10 +9,10 @@ class LBH_Store_Frontend extends Lamosty_Store {
 	public function hide_cat_from_homepage( $cat_IDs ) {
 		$this->add_single_data( 'cat_IDs', $cat_IDs );
 
-		add_action( 'pre_get_posts', array( $this, 'action_hide_cat_from_homepage' ) );
+		add_action( 'pre_get_posts', array( $this, 'wp_action_hide_cat_from_homepage' ) );
 	}
 
-	public function action_hide_cat_from_homepage( WP_Query $query ) {
+	public function wp_action_hide_cat_from_homepage( WP_Query $query ) {
 		$cat_IDs                 = $this->get_single_data( 'cat_IDs' );
 		$cat_IDs_excluded_string = '';
 
@@ -32,10 +32,10 @@ class LBH_Store_Frontend extends Lamosty_Store {
 	public function reverse_cat_posts_order( $cat_IDs ) {
 		$this->add_single_data( 'reversed_cat_IDs', $cat_IDs );
 
-		add_action( 'pre_get_posts', array( $this, 'action_reverse_cat_posts_order' ) );
+		add_action( 'pre_get_posts', array( $this, 'wp_action_reverse_cat_posts_order' ) );
 	}
 
-	public function action_reverse_cat_posts_order( WP_Query $query ) {
+	public function wp_action_reverse_cat_posts_order( WP_Query $query ) {
 		$cat_IDs = $this->get_single_data( 'reversed_cat_IDs' );
 
 		if ( $query->is_category( $cat_IDs ) ) {
