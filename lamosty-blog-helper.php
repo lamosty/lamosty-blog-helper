@@ -35,7 +35,7 @@ class Lamosty_Blog_Helper extends Lamosty_Plugin {
 		$callbacks_manager_frontend->register_callbacks();
 
 		$actions_frontend = new LBH_Actions_Frontend( $this->dispatcher );
-		$actions_frontend->init_actions();
+		$actions_frontend->init_wp_actions();
 	}
 
 	public static function init( Lamosty_Dispatcher $dispacher, $file ) {

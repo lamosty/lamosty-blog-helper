@@ -6,40 +6,21 @@
 class LBH_Store_Frontend extends Lamosty_Store {
 	protected $id = 'frontend';
 
-	public function hide_cat_from_homepage( $cat_IDs ) {
-		$this->add_single_data( 'cat_IDs', $cat_IDs );
+	public function cat_IDs_to_string( $cat_IDs, $exclude_cats = false ) {
+		if ( $exclude_cats ) {
+			$cat_IDs_excluded_string = '';
 
-		add_action( 'pre_get_posts', array( $this, 'wp_action_hide_cat_from_homepage' ) );
-	}
+			for ( $i = 0; $i < count( $cat_IDs ); $i ++ ) {
+				$cat_IDs_excluded_string .= "-{$cat_IDs[$i]}";
 
-	public function wp_action_hide_cat_from_homepage( WP_Query $query ) {
-		$cat_IDs                 = $this->get_single_data( 'cat_IDs' );
-		$cat_IDs_excluded_string = '';
-
-		for ( $i = 0; $i < count( $cat_IDs ); $i ++ ) {
-			$cat_IDs_excluded_string .= "-{$cat_IDs[$i]}";
-
-			if ( $i + 1 < count( $cat_IDs ) ) {
-				$cat_IDs_excluded_string .= ",";
+				if ( $i + 1 < count( $cat_IDs ) ) {
+					$cat_IDs_excluded_string .= ",";
+				}
 			}
-		}
 
-		if ( $query->is_home() && $query->is_main_query() ) {
-			$query->set( 'cat', $cat_IDs_excluded_string );
-		}
-	}
-
-	public function reverse_cat_posts_order( $cat_IDs ) {
-		$this->add_single_data( 'reversed_cat_IDs', $cat_IDs );
-
-		add_action( 'pre_get_posts', array( $this, 'wp_action_reverse_cat_posts_order' ) );
-	}
-
-	public function wp_action_reverse_cat_posts_order( WP_Query $query ) {
-		$cat_IDs = $this->get_single_data( 'reversed_cat_IDs' );
-
-		if ( $query->is_category( $cat_IDs ) ) {
-			$query->set( 'order', 'ASC' );
+			$this->add_single_data( 'excluded_cat_IDs_string', $cat_IDs_excluded_string );
+		} else {
+			$this->add_single_data( 'cat_IDs_string', implode( ',', $cat_IDs ) );
 		}
 	}
 }
