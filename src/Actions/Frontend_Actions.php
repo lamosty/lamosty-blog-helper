@@ -1,12 +1,15 @@
-<?php
+<?php namespace Lamosty\Blog_Helper\Actions;
 
 /**
  * @ Lamosty.com 2015
  */
-class LBH_Actions_Frontend extends Lamosty_Actions {
+
+use \Lamosty\WP_Plugin_Stack\Actions;
+
+class Frontend_Actions extends Actions {
 	protected $id = 'frontend';
 
-	public function hide_cats_from_homepage( WP_Query $query ) {
+	public function hide_cats_from_homepage( \WP_Query $query ) {
 		$cat_IDs = array( 55, 56 );
 
 		$this->dispatcher->dispatch( array(
@@ -16,7 +19,7 @@ class LBH_Actions_Frontend extends Lamosty_Actions {
 		) );
 	}
 
-	public function reverse_cats_posts_order( WP_Query $query ) {
+	public function reverse_cats_posts_order( \WP_Query $query ) {
 		$cat_IDs = array( 54 );
 
 		$this->dispatcher->dispatch( array(

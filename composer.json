@@ -1,0 +1,17 @@
+{
+    "name": "lamosty/blog-helper",
+    "authors": [
+        {
+            "name": "Rastislav Lamos",
+            "email": "lamos.rasto@gmail.com"
+        }
+    ],
+    "require": {
+        "lamosty/wp-plugin-stack": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lamosty\\Blog_Helper\\": "src/"
+        }
+    }
+}

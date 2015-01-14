@@ -1,9 +1,14 @@
-<?php
+<?php namespace Lamosty\Blog_Helper\Callbacks_Managers;
 
 /**
  * @ Lamosty.com 2015
  */
-class LBH_Callbacks_Manager_Frontend extends Lamosty_Callbacks_Manager {
+
+use \Lamosty\WP_Plugin_Stack\Callbacks_Manager;
+use \Lamosty\Blog_Helper\Stores;
+use \Lamosty\Blog_Helper\Views;
+
+class Frontend_Callbacks_Manager extends Callbacks_Manager {
 	public function register_callbacks() {
 		$this->register_callback( 'frontend', array( $this, 'handle_frontend_dispatcher' ) );
 	}
@@ -11,10 +16,10 @@ class LBH_Callbacks_Manager_Frontend extends Lamosty_Callbacks_Manager {
 	public function handle_frontend_dispatcher( $action ) {
 		$action_type = $action["action_type"];
 
-		/* @var $store_frontend LBH_Store_Frontend */
+		/* @var $store_frontend Stores\Frontend_Store */
 		$store_frontend = $this->get_store( 'frontend' );
 
-		/* @var $views_frontend LBH_Views_Frontend */
+		/* @var $views_frontend Views\Frontend_Views */
 		$views_frontend = $this->get_view( 'frontend' );
 
 		switch ( $action_type ) {

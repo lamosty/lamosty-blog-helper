@@ -1,4 +1,4 @@
-<?php
+<?php namespace Lamosty\Blog_Helper;
 /**
  * Plugin Name:       Lamosty Blog Helper
  * Plugin URI:        https://lamosty.com/plugins/blog-helper-wordpress-plugin/
@@ -15,34 +15,34 @@
  * Tested up to:      4.1
  */
 
-$lamosty_plugin_stack_dir = dirname( __FILE__ ) . '/lib/lamosty-plugin-stack';
+require __DIR__ . '/vendor/autoload.php';
 
-require_once( $lamosty_plugin_stack_dir . '/init.php' );
+use \Lamosty\WP_Plugin_Stack;
 
-class Lamosty_Blog_Helper extends Lamosty_Plugin {
+class Blog_Helper extends WP_Plugin_Stack\Plugin {
+	protected $namespace = __NAMESPACE__;
 
-	function __construct( Lamosty_Dispatcher $dispatcher, $file ) {
-		$this->class_prefix = 'lbh';
+	function __construct( WP_Plugin_Stack\Dispatcher $dispatcher ) {
 
-		parent::__construct( $dispatcher, $file );
+		parent::__construct( $dispatcher );
 
 		add_action( 'init', array( $this, 'action_init' ) );
 
 	}
 
 	public function action_init() {
-		$callbacks_manager_frontend = new LBH_Callbacks_Manager_Frontend( $this->dispatcher, $this );
+		$callbacks_manager_frontend = new Callbacks_Managers\Frontend_Callbacks_Manager( $this->dispatcher, $this );
 		$callbacks_manager_frontend->register_callbacks();
 
-		$actions_frontend = new LBH_Actions_Frontend( $this->dispatcher );
+		$actions_frontend = new Actions\Frontend_Actions( $this->dispatcher );
 		$actions_frontend->init_wp_actions();
 	}
 
-	public static function init( Lamosty_Dispatcher $dispacher, $file ) {
+	public static function init( WP_Plugin_Stack\Dispatcher $dispatcher ) {
 		static $instance = null;
 
 		if ( ! $instance ) {
-			$instance = new Lamosty_Blog_Helper( $dispacher, $file );
+			$instance = new Blog_Helper( $dispatcher );
 		}
 
 		return $instance;
@@ -50,4 +50,4 @@ class Lamosty_Blog_Helper extends Lamosty_Plugin {
 	}
 }
 
-Lamosty_Blog_Helper::init( new Lamosty_Dispatcher(), __FILE__ );
+Blog_Helper::init( new WP_Plugin_Stack\Dispatcher() );

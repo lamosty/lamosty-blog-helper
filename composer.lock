@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "b2632de265b4ce645f2730a116f1151c",
+    "packages": [
+        {
+            "name": "lamosty/wp-plugin-stack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lamosty/wp-plugin-stack.git",
+                "reference": "e527d0b16545af51480ac7e03c6f33af3b9dc3d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lamosty/wp-plugin-stack/zipball/e527d0b16545af51480ac7e03c6f33af3b9dc3d3",
+                "reference": "e527d0b16545af51480ac7e03c6f33af3b9dc3d3",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lamosty\\WP_Plugin_Stack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "Rastislav Lamos",
+                    "email": "lamos.rasto@gmail.com",
+                    "homepage": "https://lamosty.com"
+                }
+            ],
+            "description": "WP Plugin Stack is a set of libraries and helpers to aid in plugin development. Work in progress.",
+            "time": "2015-01-14 19:17:50"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "lamosty/wp-plugin-stack": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

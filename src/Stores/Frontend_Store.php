@@ -1,9 +1,12 @@
-<?php
+<?php namespace Lamosty\Blog_Helper\Stores;
 
 /**
  * @ Lamosty.com 2015
  */
-class LBH_Store_Frontend extends Lamosty_Store {
+
+use \Lamosty\WP_Plugin_Stack\Store;
+
+class Frontend_Store extends Store {
 	protected $id = 'frontend';
 
 	public function cat_IDs_to_string( $cat_IDs, $exclude_cats = false ) {
