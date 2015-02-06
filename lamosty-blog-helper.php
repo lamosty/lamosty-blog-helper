@@ -33,17 +33,17 @@ class Blog_Helper extends WP_Plugin_Stack\Plugin {
 	}
 
 	public function action_init() {
-		$frontend_callbacks_manager = new Callbacks_Managers\Frontend_Callbacks_Manager( $this->dispatcher, $this );
-		$backend_callbacks_manager  = new Callbacks_Managers\Backend_Callbacks_Manager( $this->dispatcher, $this );
+//		$frontend_callbacks_manager = new Callbacks_Managers\Frontend_Callbacks_Manager( $this->dispatcher, $this );
+		$category_callbacks_manager  = new Callbacks_Managers\Category_Callbacks_Manager( $this->dispatcher, $this );
 
-		$frontend_callbacks_manager->register_callbacks();
-		$backend_callbacks_manager->register_callbacks();
+//		$frontend_callbacks_manager->register_callbacks();
+		$category_callbacks_manager->register_callbacks();
 
 
-		$frontend_actions = new Actions\Frontend_Actions( $this->dispatcher );
+//		$frontend_actions = new Actions\Frontend_Actions( $this->dispatcher );
 		$category_actions  = new Actions\Category_Actions( $this->dispatcher );
 
-		$frontend_actions->init_wp_actions();
+//		$frontend_actions->init_wp_actions();
 		$category_actions->init_wp_actions();
 	}
 
