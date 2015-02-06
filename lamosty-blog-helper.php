@@ -22,6 +22,8 @@ use \Lamosty\WP_Plugin_Stack;
 class Blog_Helper extends WP_Plugin_Stack\Plugin {
 	protected $namespace = __NAMESPACE__;
 
+	const TEXT_DOMAIN = 'lamosty-blog-helper';
+
 	function __construct( WP_Plugin_Stack\Dispatcher $dispatcher ) {
 
 		parent::__construct( $dispatcher );
@@ -31,11 +33,18 @@ class Blog_Helper extends WP_Plugin_Stack\Plugin {
 	}
 
 	public function action_init() {
-		$callbacks_manager_frontend = new Callbacks_Managers\Frontend_Callbacks_Manager( $this->dispatcher, $this );
-		$callbacks_manager_frontend->register_callbacks();
+		$frontend_callbacks_manager = new Callbacks_Managers\Frontend_Callbacks_Manager( $this->dispatcher, $this );
+		$backend_callbacks_manager  = new Callbacks_Managers\Backend_Callbacks_Manager( $this->dispatcher, $this );
 
-		$actions_frontend = new Actions\Frontend_Actions( $this->dispatcher );
-		$actions_frontend->init_wp_actions();
+		$frontend_callbacks_manager->register_callbacks();
+		$backend_callbacks_manager->register_callbacks();
+
+
+		$frontend_actions = new Actions\Frontend_Actions( $this->dispatcher );
+		$category_actions  = new Actions\Category_Actions( $this->dispatcher );
+
+		$frontend_actions->init_wp_actions();
+		$category_actions->init_wp_actions();
 	}
 
 	public static function init( WP_Plugin_Stack\Dispatcher $dispatcher ) {

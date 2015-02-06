@@ -4,6 +4,7 @@
  * @ Lamosty.com 2015
  */
 
+use Lamosty\Blog_Helper\Actions\Frontend_Actions;
 use \Lamosty\WP_Plugin_Stack\Callbacks_Manager;
 use \Lamosty\Blog_Helper\Stores;
 use \Lamosty\Blog_Helper\Views;
@@ -23,7 +24,7 @@ class Frontend_Callbacks_Manager extends Callbacks_Manager {
 		$views_frontend = $this->get_view( 'frontend' );
 
 		switch ( $action_type ) {
-			case "hide_cat_from_homepage":
+			case Frontend_Actions::HIDE_CAT_FROM_HOMEPAGE:
 				$store_frontend->cat_IDs_to_string( $action["cat_IDs"], true );
 
 				$views_frontend->hide_cats_from_homepage(
@@ -35,7 +36,7 @@ class Frontend_Callbacks_Manager extends Callbacks_Manager {
 		}
 
 		switch ( $action_type ) {
-			case "reverse_cat_posts_order":
+			case Frontend_Actions::REVERSE_CAT_POSTS_ORDER:
 				$views_frontend->reverse_cat_posts_order(
 					$action["cat_IDs"],
 					$action["WP_Query"]
