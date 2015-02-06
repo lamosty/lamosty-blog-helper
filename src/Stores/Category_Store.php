@@ -16,7 +16,7 @@ class Category_Store extends Store {
 			$category_meta = array();
 		}
 
-		$this->add_single_data( "category-meta", $category_meta );
+		$this->add( "category-meta", $category_meta );
 	}
 
 	public function cat_IDs_to_string( $cat_IDs, $exclude_cats = false ) {
@@ -31,16 +31,16 @@ class Category_Store extends Store {
 				}
 			}
 
-			$this->add_single_data( 'excluded_cat_IDs_string', $cat_IDs_excluded_string );
+			$this->add( 'excluded_cat_IDs_string', $cat_IDs_excluded_string );
 		} else {
-			$this->add_single_data( 'cat_IDs_string', implode( ',', $cat_IDs ) );
+			$this->add( 'cat_IDs_string', implode( ',', $cat_IDs ) );
 		}
 	}
 
 	public function get_hidden_cats() {
 		$this->get_category_meta_from_db();
 
-		$cat_meta = $this->get_single_data( 'category-meta' );
+		$cat_meta = $this->get( 'category-meta' );
 
 		$hidden_cats = array();
 
@@ -50,6 +50,6 @@ class Category_Store extends Store {
 			}
 		}
 
-		$this->add_single_data( 'hidden_cats', $hidden_cats );
+		$this->add( 'hidden_cats', $hidden_cats );
 	}
 }

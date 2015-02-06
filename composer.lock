@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lamosty/wp-plugin-stack.git",
-                "reference": "e527d0b16545af51480ac7e03c6f33af3b9dc3d3"
+                "reference": "a6e9f411b245fd79a28065017a99b658296e4160"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lamosty/wp-plugin-stack/zipball/e527d0b16545af51480ac7e03c6f33af3b9dc3d3",
-                "reference": "e527d0b16545af51480ac7e03c6f33af3b9dc3d3",
+                "url": "https://api.github.com/repos/lamosty/wp-plugin-stack/zipball/a6e9f411b245fd79a28065017a99b658296e4160",
+                "reference": "a6e9f411b245fd79a28065017a99b658296e4160",
                 "shasum": ""
             },
             "type": "library",
@@ -38,7 +38,7 @@
                 }
             ],
             "description": "WP Plugin Stack is a set of libraries and helpers to aid in plugin development. Work in progress.",
-            "time": "2015-01-14 19:17:50"
+            "time": "2015-02-06 09:06:43"
         }
     ],
     "packages-dev": [],

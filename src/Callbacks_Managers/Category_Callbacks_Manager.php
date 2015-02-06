@@ -25,7 +25,7 @@ class Category_Callbacks_Manager extends Callbacks_Manager {
 				$category_store->get_category_meta_from_db();
 
 				$category_views->render_cat_visibility_fields(
-					$category_store->get_single_data( 'category-meta' ),
+					$category_store->get( 'category-meta' ),
 					$tag
 				);
 
@@ -35,17 +35,17 @@ class Category_Callbacks_Manager extends Callbacks_Manager {
 				$category_store->get_category_meta_from_db();
 
 				$category_views->save_cat_visibility_option(
-					$category_store->get_single_data( 'category-meta' )
+					$category_store->get( 'category-meta' )
 				);
 
 				break;
 
 			case Category_Actions::HIDE_CAT_FROM_HOMEPAGE:
 				$category_store->get_hidden_cats();
-				$category_store->cat_IDs_to_string( $category_store->get_single_data( 'hidden_cats' ), true );
+				$category_store->cat_IDs_to_string( $category_store->get( 'hidden_cats' ), true );
 
 				$category_views->hide_cats_from_homepage(
-					$category_store->get_single_data( 'excluded_cat_IDs_string' ),
+					$category_store->get( 'excluded_cat_IDs_string' ),
 					$action["WP_Query"]
 				);
 
