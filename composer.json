@@ -1,5 +1,6 @@
 {
     "name": "lamosty/blog-helper",
+    "type": "wordpress-plugin",
     "authors": [
         {
             "name": "Rastislav Lamos",
@@ -7,7 +8,8 @@
         }
     ],
     "require": {
-        "lamosty/wp-plugin-stack": "dev-master"
+        "lamosty/wp-plugin-stack": "dev-master",
+        "composer/installers": "dev-master"
     },
     "autoload": {
         "psr-4": {
