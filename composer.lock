@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c55650360a6708e20b7f725b4f63e9e2",
+    "hash": "ae3aca28fca2174595668d7814816e4f",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "dev-master",
+            "version": "v1.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "61b6efdbe56b4658c0f6b4c0da5690fe8cf763e5"
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/61b6efdbe56b4658c0f6b4c0da5690fe8cf763e5",
-                "reference": "61b6efdbe56b4658c0f6b4c0da5690fe8cf763e5",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
+                "reference": "d64e23fce42a4063d63262b19b8e7c0f3b5e4c45",
                 "shasum": ""
             },
             "replace": {
@@ -99,11 +99,11 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2015-03-15 01:03:53"
+            "time": "2015-02-18 17:17:01"
         },
         {
             "name": "lamosty/wp-plugin-stack",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lamosty/wp-plugin-stack.git",
@@ -139,10 +139,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "lamosty/wp-plugin-stack": 20,
-        "composer/installers": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

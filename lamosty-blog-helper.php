@@ -15,7 +15,11 @@
  * Tested up to:      4.1
  */
 
-require __DIR__ . '/vendor/autoload.php';
+$autoload_path = __DIR__ . '/vendor/autoload.php';
+
+if ( file_exists( $autoload_path ) ) {
+    require_once( $autoload_path );
+}
 
 use \Lamosty\WP_Plugin_Stack;
 
